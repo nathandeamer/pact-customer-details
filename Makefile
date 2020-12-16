@@ -8,4 +8,7 @@ compile:
 	./gradlew clean build
 
 pact-provider:
-	./gradlew -Ppact.verifier.publishResults=true -Ppact.provider.version=${GITHUB_COMMIT_HASH} pactProvider
+	./gradlew -Dpact.verifier.publishResults=true -Dpact.provider.version=${GITHUB_COMMIT_HASH} pactProvider
+
+pact-release:
+	./gradlew -Dpact.verifier.publishResults=true -Dpact.provider.version=${GITHUB_COMMIT_HASH} -Dpact.provider.tag=${ENV} pactProvider
